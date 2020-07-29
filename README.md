@@ -12,3 +12,8 @@ Remember to install `qemu` and `binfmt` for arm architecture support on x86_64 s
 
 - `arm-minimal`: includes just the openssh server
 - `arm`: includes zeromq and some extra libs such as numpy, i2c-tools,...
+  
+  
+
+
+© Copyright 2020 Witted Srl - All Rights Reserved
