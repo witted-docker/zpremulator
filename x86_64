@@ -9,6 +9,9 @@ RUN sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_confi
 RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
 RUN mkdir /root/.ssh
 
+# Add emulator user (password: emulator)
+RUN useradd -m emulator && echo "emulator:emulator" | chpasswd && adduser emulator sudo
+
 # Project dependencies
 RUN apt-get update && apt-get install -y \
   git dtach netcat libzmq5 i2c-tools htop valgrind\
