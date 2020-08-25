@@ -11,6 +11,7 @@ RUN mkdir /root/.ssh
 
 # Add emulator user (password: emulator)
 RUN useradd -m emulator && echo "emulator:emulator" | chpasswd && adduser emulator sudo
+RUN mkdir -p /home/emulator
 
 # Project dependencies
 RUN apt-get update && apt-get install -y \
