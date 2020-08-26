@@ -10,8 +10,9 @@ RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
 RUN mkdir /root/.ssh
 
 # Add emulator user (password: emulator)
-RUN useradd -m emulator && echo "emulator:emulator" | chpasswd && adduser emulator sudo
+RUN useradd -m emulator -s /bin/bash && echo "emulator:emulator" | chpasswd && adduser emulator sudo
 RUN mkdir -p /home/emulator
+RUN echo 'emulator  ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 
 # Project dependencies
 RUN apt-get update && apt-get install -y \
